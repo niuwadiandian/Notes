@@ -18,10 +18,12 @@ Linux(Ubuntu1804)使用中遇到的一些问题和解决办法
       set root='(sd1,msdos1)'
     ```
   + 举例，如果win10所在分区为<code>sda1</code>,则该行的配置为<code>set root='(sd1,msdos1)'</code>
+  
   +保存文件后执行下面语句
     ```
     <code>sudo update-grub</code>
     ```
 + 问题二
   + 步骤一
+  
   + 步骤二
