@@ -47,7 +47,7 @@ Linux(Ubuntu1804)使用中遇到的一些问题和解决办法
     + <code> ctrl + c </code>中止，添加自己的配置文件，重新运行<code> ./clash </code>
     + 登陆 <code> DashBoard </code> 选择节点配置策略，地址为 <code> http://clash.razord.top/ </code>
     + 最后开启系统代理，与配置文件一致即可    
-  + 6、安装 <code> snap </code> 
+  + 6、安装 <code> snap </code> (与Ubuntu Store搭配使用)
     + Snap是最初由Canonical设计和开发的软件软件包管理/软件部署工具，大多数的Ubuntu发行版都预装有Snap
     + 运行<code> snap </code>可以检测是否安装。如果没有，运行以下命令：
       ```
@@ -55,9 +55,28 @@ Linux(Ubuntu1804)使用中遇到的一些问题和解决办法
         sudo apt install -y snapd
       ```
     + 用snap搜索包：snap find \<search terms>
-  + 7、
-  + 8、
-  + 9、
+    + 安装Snaps: sudo snap install \<snapname>
+    + 删除Snaps: sudo snap remove \<snapname>
+    + 回滚到以前版本: sudo snap revert \<snap name>
+    + 列出已安装的snaps: snap list
+  + 7、安装VSCode
+    + Ubuntu Store搜索
+  + 8、创建程序/可执行文件的快捷方式
+    + <code> sudo vi /usr/share/applications/Clash.desktop </code>
+    + 编辑内容如下：
+      ```
+        [Desktop Entry]
+          Version=0.20.0
+          Name=Clash
+          Comment=A rule-based tunnel in Go
+          Exec=~/clash/clash
+          Icon=~/clash/clash.png
+          Terminal=true
+          Type=Application
+          Categories=Network
+      ```
+  + 9、手动安装<code> xxx.deb </code>包
+    + cd 到所在目录，执行<code> sudo dpkg -i xxx.deb </code>
   + 10、
   + 11、
   + 12、
