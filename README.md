@@ -1,7 +1,7 @@
 # Notes4Linux
 Linux(Ubuntu1804)使用中遇到的一些问题和解决办法
 
-+ Linux修复（添加）Windows 10引导项
++ Linux修复（添加）Windows 10引导项（错的，不可行）
   + <code>sudo fdisk -l</code> 找到系统安装磁盘与分区
   + 完成第一步后，编辑grub配置，<code>sudo vi /boot/grub/grub.cfg</code>
   + 用下面的代码替代<code>### BEGIN /etc/grub.d/40_custom ###</code>和<code>### END /etc/grub.d/40_custom ###</code>之间原有的代码即可（位置可能不重要）。
@@ -22,7 +22,8 @@ Linux(Ubuntu1804)使用中遇到的一些问题和解决办法
     ```
     sudo update-grub
     ```
-+ 问题二
++ 问题二 新安装Ubuntu后要做些什么？
   + 步骤一
+    + 更新内核
   
   + 步骤二
