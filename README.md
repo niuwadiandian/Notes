@@ -23,7 +23,10 @@ Linux(Ubuntu1804)使用中遇到的一些问题和解决办法
     sudo update-grub
     ```
 + 问题二 新安装Ubuntu后要做些什么？
-  + 步骤一
-    + 更新内核
-  
-  + 步骤二
+  + 更新内核
+    + 内核（kernel）链接<a href="https://link.zhihu.com/?target=https%3A//kernel.ubuntu.com/~kernel-ppa/mainline/">https://link.zhihu.com/?target=https%3A//kernel.ubuntu.com/~kernel-ppa/mainline/ </a>
+  + 软件（包）更新
+    ```
+    sudo apt update
+    sudo apt upgrade
+    ```
