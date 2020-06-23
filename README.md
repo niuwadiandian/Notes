@@ -35,6 +35,7 @@ Linux(Ubuntu1804)使用中遇到的一些问题和解决办法
     sudo apt upgrade
     ```
   + 3、安装媒体资源
+    + VLC:Ubuntu Store
     + 
   + 4、安装Chrome浏览器
     + 去官网下载<code>.deb</code>安装包<a href="https://www.google.cn/chrome/index.html"> https://www.google.cn/chrome/index.html </a>
@@ -61,6 +62,24 @@ Linux(Ubuntu1804)使用中遇到的一些问题和解决办法
     + 列出已安装的snaps: snap list
   + 7、安装VSCode
     + Ubuntu Store搜索
+  + 8、安装N卡驱动（其中一种方法，可用）
+    + 基本步骤：先从Nvidia下载相应系统的对应显卡的<code>xxx.run</code>文件，再配置<code>gcc、g++</code>环境，最后运行安装脚本；
+    + 如果不知道自己的<code>gcc、g++</code>环境是否满足，可以先安装，如果提示版本太低，就<code>ctrl + c</code>先终止安装过程；
+    + <code>gcc --version</code>查看版本；
+    + 首先添加仓库
+      ```
+        sudo apt install software-properties-common
+        sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+      ```
+    + 接着安装想要的版本，<code>sudo apt install gcc-8 g++-8 gcc-9 g++-9</code>
+    + gcc的安装不同与软件的更新。安装gcc后，系统中会保存有多个版本的gcc，此时需要调整不同版本的优先级，使得优先级最高的作为系统默认编译器。下面的例子中，gcc-9的优先级最高为90，gcc-8其次80，gcc-7最低70，系统默认为gcc-9。
+      ```
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 80 --slave /usr/bin/g++ g++ /usr/bin/g++-8 --slave /usr/bin/gcov gcov /usr/bin/gcov-8
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 --slave /usr/bin/g++ g++ /usr/bin/g++-7 --slave /usr/bin/gcov gcov /usr/bin/gcov-7
+      ```
+    + 至此，gcc的安装配置结束；执行<code>sudo update-alternatives --config gcc</code>查看系统中全部gcc。
+    + 执行命令<code>sudo bash ./NVIDIA-Linux-x86_64-xxx.run</code>，按照指示进行安装。<a href="https://xungejiang.com/2019/10/08/ubuntu-gpu-driver/"> 详细教程 </a>
   + 8、创建程序/可执行文件的快捷方式
     + <code> sudo vi /usr/share/applications/Clash.desktop </code>
     + 编辑内容如下：
@@ -69,15 +88,17 @@ Linux(Ubuntu1804)使用中遇到的一些问题和解决办法
           Version=0.20.0
           Name=Clash
           Comment=A rule-based tunnel in Go
-          Exec=~/clash/clash
-          Icon=~/clash/clash.png
+          Exec=/home/user/Applications/clash/clash %U
+          Icon=/home/user/Applications/clash/clash.png
           Terminal=true
           Type=Application
           Categories=Network
       ```
   + 9、手动安装<code> xxx.deb </code>包
     + cd 到所在目录，执行<code> sudo dpkg -i xxx.deb </code>
-  + 10、
+  + 10、<code> rm </code> 命令用法
+    + 向下递归删除文件夹下所有文件且不作提示：rm -rf folder/，例如rm -rf QQ/
+    + 删除文件：rm -f \<path to file>
   + 11、
   + 12、
   + 13、
