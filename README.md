@@ -23,6 +23,10 @@ Linux(Ubuntu1804)使用中遇到的一些问题和解决办法
     ```
     sudo update-grub
     ```
++ 安装报错：
+  <pre>Errors were encountered while processing:
+  electron-ssr</pre>
+  + 安装本地包有时会因为缺少依赖报错，此时，执行<code> sudo apt --fix-broken install</code>可以下载缺少的依赖并自动继续安装
 + 问题二 新安装Ubuntu后要做些什么？
   + 1、更新内核（看个人情况，不一定有必要，但是更新内核会生成正确的grub引导，可以解决一些引导问题，亲测有效）
     + 先运行 <code> sudo uname -i </code> 查看当前内核版本
