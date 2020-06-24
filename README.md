@@ -1,33 +1,11 @@
 # Notes4Linux
-Linux(Ubuntu1804)使用中遇到的一些问题和解决办法
+## Linux(Ubuntu1804)使用中遇到的一些问题和解决办法
 
-+ Linux修复（添加）Windows 10引导项（亲测无效）
-  + <code>sudo fdisk -l</code> 找到系统安装磁盘与分区
-  + 完成第一步后，编辑grub配置，<code>sudo vi /boot/grub/grub.cfg</code>
-  + 用下面的代码替代<code>### BEGIN /etc/grub.d/40_custom ###</code>和<code>### END /etc/grub.d/40_custom ###</code>之间原有的代码即可（位置可能不重要）。
-    ```
-      menuentry "Windows 10" {
-        insmod part_msdos
-        insmod ntfs
-        set root='(sd1,msdos1)'
-        # chainloader +1    # BIOS引导
-        # chainloader /path/to/.efi # UEFI引导
-      }
-    ```
-  + 这里特别需要注意的是这行
-    ```
-      set root='(sd1,msdos1)'
-    ```
-  + 举例，如果win10所在分区为<code>sda1</code>,则该行的配置为<code>set root='(sd1,msdos1)'</code>
-  + 保存文件后执行下面语句
-    ```
-    sudo update-grub
-    ```
 + 安装报错：
   <pre>Errors were encountered while processing:
   electron-ssr</pre>
   + 安装本地包有时会因为缺少依赖报错，此时，执行<code> sudo apt --fix-broken install</code>可以下载缺少的依赖并自动继续安装
-+ 问题二 新安装Ubuntu后要做些什么？
++ 新安装Ubuntu后要做些什么？
   + 1、更新内核（看个人情况，不一定有必要，但是更新内核会生成正确的grub引导，可以解决一些引导问题，亲测有效）
     + 先运行 <code> sudo uname -i </code> 查看当前内核版本
     + 去内核（kernel）网址找到自己平台的期望版本<a href="https://kernel.ubuntu.com/~kernel-ppa/mainline/"> https://kernel.ubuntu.com/~kernel-ppa/mainline/ </a>
@@ -68,7 +46,7 @@ Linux(Ubuntu1804)使用中遇到的一些问题和解决办法
   + 7、安装VSCode
     + Ubuntu Store搜索
   + 8、安装N卡驱动（其中一种方法，可用）
-    + 基本步骤：先从Nvidia下载相应系统的对应显卡的<code>xxx.run</code>文件，再配置<code>gcc、g++</code>环境，最后运行安装脚本；
+    + 基本步骤：首先禁用初始驱动，接着从Nvidia下载相应系统的对应显卡的<code>xxx.run</code>文件，再配置<code>gcc、g++</code>环境，最后运行安装脚本；
     + 如果不知道自己的<code>gcc、g++</code>环境是否满足，可以先安装，如果提示版本太低，就<code>ctrl + c</code>先终止安装过程；
     + <code>gcc --version</code>查看版本；
     + 首先添加仓库
