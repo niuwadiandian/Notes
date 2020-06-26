@@ -82,7 +82,8 @@
   + 10、<code> rm </code> 命令用法
     + 向下递归删除文件夹下所有文件且不作提示：rm -rf folder/，例如rm -rf QQ/
     + 删除文件：rm -f \<path to file>
-  + 11、
+  + 11、安装Steam
+    + sudo apt install steam-installer
   + 12、
   + 13、
   + 14、
