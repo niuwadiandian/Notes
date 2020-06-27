@@ -5,6 +5,13 @@
   <pre>Errors were encountered while processing:
   electron-ssr</pre>
   + 安装本地包有时会因为缺少依赖报错，此时，执行<code> sudo apt --fix-broken install</code>可以下载缺少的依赖并自动继续安装
++ Gnome桌面的Ubuntu如何截屏？
+  + Gnome内置了<code>gnome-screenshot</code>命令来完成简单的截全屏功能；加上选项<code> -a </code>可以自定义截屏区域。
+  + 可以在<c>设置-键盘</c>中添加快捷键来调用以上命令
+  + Name：填入自定义名称，如截屏、Sreenshot
+  + Command：填入快捷键调用的命令，如<code> gnome-screenshot (-a) </code>
+  + Shortcut：点击<code>设置热键</code>，输入热键搭配
+
 + 新安装Ubuntu后要做些什么？
   + 1、更新内核（看个人情况，不一定有必要，但是更新内核会生成正确的grub引导，可以解决一些引导问题，亲测有效）
     + 先运行 <code> sudo uname -i </code> 查看当前内核版本
