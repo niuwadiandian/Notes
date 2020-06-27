@@ -11,6 +11,7 @@
   + Name：填入自定义名称，如截屏、Sreenshot
   + Command：填入快捷键调用的命令，如<code> gnome-screenshot (-a) </code>
   + Shortcut：点击<code>设置热键</code>，输入热键搭配
+  + 截得的图片会存放在<code> /home/username/Pictures </code>
 
 + 新安装Ubuntu后要做些什么？
   + 1、更新内核（看个人情况，不一定有必要，但是更新内核会生成正确的grub引导，可以解决一些引导问题，亲测有效）
